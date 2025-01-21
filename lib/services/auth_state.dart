@@ -63,6 +63,7 @@ enum AuthState {
   unauthenticated(
     redirectPath: '/login',
     allowedPaths: [
+      '/signup',
       '/login',
       '/settings',
     ],
@@ -72,12 +73,6 @@ enum AuthState {
     allowedPaths: [
       '/products',
       '/products/:id',
-      '/todos',
-      '/todos/add',
-      '/todos/:id',
-      '/todos/:id/update',
-      '/posts',
-      '/posts/:id',
       '/profile',
       '/settings',
     ],
