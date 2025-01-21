@@ -3,7 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../features/login/screens/login.dart';
+import '../features/auth/screens/login.dart';
+import '../features/auth/screens/signup.dart';
 import '../features/posts/screens/post.dart';
 import '../features/posts/screens/posts.dart';
 import '../features/products/screens/product.dart';
@@ -74,6 +75,10 @@ GoRouter router(Ref ref) {
       GoRoute(
         path: '/login',
         builder: (_, __) => const LoginScreen(),
+      ),
+       GoRoute(
+        path: '/signup',
+        builder: (_, __) => const SignupScreen(),
       ),
       GoRoute(
         path: '/settings',

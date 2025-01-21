@@ -9,6 +9,7 @@ import 'features/settings/providers/settings.dart';
 import 'services/router.dart';
 import 'services/storage/prefs.dart';
 import 'services/storage/secure_storage.dart';
+import 'utils/colors.dart';
 import 'utils/methods.dart';
 import 'utils/provider_observer.dart';
 
@@ -64,6 +65,14 @@ class _MainApp extends StatefulHookConsumerWidget {
   ConsumerState<_MainApp> createState() => _MainAppState();
 }
 
+InputBorder kGetInputBorder(Color color, {double? radius}) =>
+    OutlineInputBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(radius ?? 8),
+      ),
+      borderSide: BorderSide(color: color),
+    );
+
 class _MainAppState extends ConsumerState<_MainApp> {
   @override
   void initState() {
@@ -81,8 +90,18 @@ class _MainAppState extends ConsumerState<_MainApp> {
         seedColor: Colors.green,
         useMaterial3: true,
         transformer: (data) => data.copyWith(
-          inputDecorationTheme: const InputDecorationTheme(
-            border: OutlineInputBorder(),
+          inputDecorationTheme: InputDecorationTheme(
+            helperMaxLines: 2,
+            errorMaxLines: 2,
+            isDense: true,
+            focusedBorder: kGetInputBorder(AppColors.primary),
+            enabledBorder: kGetInputBorder(AppColors.outline),
+            errorBorder: kGetInputBorder(AppColors.red),
+            focusedErrorBorder: kGetInputBorder(AppColors.red),
+            hintStyle: const TextStyle(
+              color: AppColors.hint,
+              fontSize: 13,
+            ),
           ),
         ),
       ),

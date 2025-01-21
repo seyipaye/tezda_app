@@ -8,6 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../services/api/api_client.dart';
 import '../../../services/auth_state.dart';
 import '../../../utils/extensions.dart';
+import '../../../widgets/app_text_form_field.dart';
 import '../../../widgets/button.dart';
 import '../models/login.dart';
 
@@ -21,7 +22,8 @@ class LoginScreen extends HookConsumerWidget {
     final usernameController = useTextEditingController();
     final passwordController = useTextEditingController();
 
-    void onSettingsPressed() => context.push('/settings');
+    usernameController.text = 'emilys';
+    passwordController.text = 'emilyspass';
 
     Future<void> onLoginPressed() async {
       try {
@@ -38,12 +40,6 @@ class LoginScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
-        actions: [
-          IconButton(
-            onPressed: onSettingsPressed,
-            icon: const Icon(Icons.settings),
-          ),
-        ],
       ),
       body: SeparatedColumn(
         padding: const EdgeInsets.all(24),
@@ -51,28 +47,26 @@ class LoginScreen extends HookConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          TextField(
-            controller: usernameController,
-            decoration: const InputDecoration(labelText: 'Username'),
+          AppTextFormField(
+            label: 'Username',
+            textEditingController: usernameController,
             textInputAction: TextInputAction.next,
           ),
-          TextField(
-            controller: passwordController,
-            decoration: InputDecoration(
-              labelText: 'Password',
-              suffixIcon: IconButton(
-                icon: Icon(
-                  isPasswordVisible.value
-                      ? Icons.visibility_off
-                      : Icons.visibility,
-                ),
-                onPressed: () =>
-                    isPasswordVisible.value = !isPasswordVisible.value,
-              ),
-            ),
-            obscureText: !isPasswordVisible.value,
-            keyboardType: TextInputType.visiblePassword,
+          AppTextFormField(
+            label: 'Password',
+            textEditingController: passwordController,
             textInputAction: TextInputAction.done,
+            textInputType: TextInputType.visiblePassword,
+            obscureText: !isPasswordVisible.value,
+            suffixIcon: IconButton(
+              icon: Icon(
+                isPasswordVisible.value
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+              ),
+              onPressed: () =>
+                  isPasswordVisible.value = !isPasswordVisible.value,
+            ),
           ),
           const Gap(8),
           AppButton(

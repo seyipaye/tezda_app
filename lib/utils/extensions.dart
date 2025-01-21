@@ -36,3 +36,10 @@ extension ThemeModeX on ThemeMode {
         ThemeMode.dark => 'Dark',
       };
 }
+
+extension StringX on String {
+  String get capitalizeFirst {
+    if (length < 2) return this;
+    return this[0].toUpperCase() + substring(1).toLowerCase();
+  }
+}
