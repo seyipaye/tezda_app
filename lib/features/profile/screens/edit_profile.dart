@@ -112,9 +112,11 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('An error occurred')),
         data: (profile) {
-          fNameController.text = profile.firstName;
-          lNameController.text = profile.lastName;
-          emailController.text = profile.email;
+          if (profileImage == null) {
+            fNameController.text = profile.firstName;
+            lNameController.text = profile.lastName;
+            emailController.text = profile.email;
+          }
 
           doAfterBuild(() {
             setState(() {
