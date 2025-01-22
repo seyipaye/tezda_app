@@ -1,10 +1,8 @@
 import 'package:dio/dio.dart';
 
 import '../../features/auth/models/login.dart';
-import '../../features/posts/models/post.dart';
 import '../../features/products/models/product.dart';
 import '../../features/profile/models/profile.dart';
-import '../../features/todos/models/todo.dart';
 
 typedef ApiClientException = DioException;
 typedef ApiClientResponse<T> = Response<T>;
@@ -88,72 +86,13 @@ class ApiClient {
     return Product.fromJson(response.data as _ResponseData);
   }
 
-  Future<List<Todo>> fetchTodos() async {
-    final response = await _httpClient.get('/todos');
+  // Future<List<Todo>> fetchTodos() async {
+  //   final response = await _httpClient.get('/todos');
 
-    return (response.data['todos'] as List)
-        .cast<_ResponseData>()
-        .map(Todo.fromJson)
-        .toList();
-  }
+  //   return (response.data['todos'] as List)
+  //       .cast<_ResponseData>()
+  //       .map(Todo.fromJson)
+  //       .toList();
+  // }
 
-  Future<Todo> fetchTodo(int id) async {
-    final response = await _httpClient.get('/todos/$id');
-
-    return Todo.fromJson(response.data as _ResponseData);
-  }
-
-  Future<Todo> addTodo(Todo todo) async {
-    final response = await _httpClient.post(
-      '/todos/add',
-      data: todo.toJson()..remove('id'),
-    );
-
-    return Todo.fromJson(response.data as _ResponseData);
-  }
-
-  Future<Todo> updateTodo(int id, Todo todo) async {
-    final response = await _httpClient.put(
-      '/todos/$id',
-      data: todo.toJson()..remove('id'),
-    );
-
-    return Todo.fromJson(response.data as _ResponseData);
-  }
-
-  Future<Todo> deleteTodo(int id) async {
-    final response = await _httpClient.delete('/todos/$id');
-
-    return Todo.fromJson(response.data as _ResponseData);
-  }
-
-  Future<List<Post>> fetchPosts({String? search, int? limit, int? skip}) async {
-    var path = '/posts';
-    final queryParameters = <String, dynamic>{};
-
-    if (search != null && search.isNotEmpty) {
-      path += '/search';
-      queryParameters['q'] = search;
-    }
-    if (limit != null) {
-      queryParameters['limit'] = limit;
-    }
-    if (skip != null) {
-      queryParameters['skip'] = skip;
-    }
-
-    final response =
-        await _httpClient.get(path, queryParameters: queryParameters);
-
-    return (response.data['posts'] as List)
-        .cast<_ResponseData>()
-        .map(Post.fromJson)
-        .toList();
-  }
-
-  Future<Post> fetchPost(int id) async {
-    final response = await _httpClient.get('/posts/$id');
-
-    return Post.fromJson(response.data as _ResponseData);
-  }
 }

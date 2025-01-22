@@ -5,17 +5,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../features/auth/screens/login.dart';
 import '../features/auth/screens/signup.dart';
-import '../features/posts/screens/post.dart';
-import '../features/posts/screens/posts.dart';
+
 import '../features/products/screens/product.dart';
 import '../features/products/screens/products.dart';
 import '../features/profile/screens/edit_profile.dart';
 import '../features/profile/screens/profile.dart';
-import '../features/settings/screens/settings.dart';
-import '../features/todos/screens/add_todo.dart';
-import '../features/todos/screens/todo.dart';
-import '../features/todos/screens/todos.dart';
-import '../features/todos/screens/update_todo.dart';
+
 import '../widgets/scaffold_with_navigation.dart';
 import 'auth_state.dart';
 
@@ -87,11 +82,7 @@ GoRouter router(Ref ref) {
         path: '/signup',
         builder: (_, __) => const SignupScreen(),
       ),
-      GoRoute(
-        path: '/settings',
-        builder: (_, __) => const SettingsScreen(),
-      ),
-
+      
       // Configuration for the bottom navigation bar routes. The routes themselves
       // should be defined in [navigationItems]. Modification to this [ShellRoute]
       // config is rarely needed.

@@ -6,14 +6,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../../services/api/api_client.dart';
-import '../../../services/auth_state.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/extensions.dart';
-import '../../../utils/strings.dart';
 import '../../../utils/validators.dart';
-import '../../../widgets/app_card.dart';
 import '../../../widgets/app_text_form_field.dart';
 import '../../../widgets/avatar_image.dart';
 import '../../../widgets/custom_button.dart';
@@ -186,32 +181,6 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
     );
   }
 
-  Widget _buildRow({
-    required IconData icon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return ListTile(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 11.0, vertical: 7),
-      leading: CircleAvatar(
-        radius: 15,
-        backgroundColor: Colors.green.shade50,
-        child: Icon(
-          icon,
-          size: 20,
-          color: AppColors.primary,
-        ),
-      ),
-      trailing: const Icon(Icons.arrow_right_rounded),
-      onTap: onTap,
-      dense: true,
-      title: Text(
-        title,
-        // style: TextStyle(color: AppColor.text2, fontSize: 14),
-        maxLines: 1,
-      ),
-    );
-  }
 }
 
 extension on Color {
