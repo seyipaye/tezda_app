@@ -124,29 +124,20 @@ Navigating between screens while maintaining the state of favorites and authenti
 Integrating Swift functionality required setting up Flutter's MethodChannel properly to communicate with the platform-specific code. Testing and debugging ensured an accurate retrieval of device model and OS version from Swift.
 
 
-
-
-<!-- ## Screenshots
+## Screenshots
 |||||
 |----|----|----|----|
-| ![View all todos] | ![View a single todo] | ![Add todo] | ![Update todo] |
-| ![Login] | ![Profile] | ![Infinite scrolling] | ![Search post] |
+| ![Product Listing] | ![Product Details] | ![View Profile] | ![Edit Profile] |
+<!-- | ![Login] | ![Profile] | ![Infinite scrolling] | ![Search post] | -->
 
 
-  [riverpod]: https://pub.dev/packages/riverpod
-  [flutter_hooks]: https://pub.dev/packages/flutter_hooks
-  [freezed]: https://pub.dev/packages/freezed
-  [go_router]: https://pub.dev/packages/go_router
-  [build_runner]: https://pub.dev/packages/build_runner
-  [DummyJSON]: https://dummyjson.com/
-
-  [View all todos]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/bc4a0202-ec44-4f7c-a26a-3d88f55a4f7a
-  [View a single todo]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/7611f63a-efd7-4a58-a831-8a1eb360ad8a
-  [Add todo]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/d412a52a-530d-4624-be7a-fc0be06cd2ab
-  [Update todo]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/3a386227-9ed4-4c9b-9223-bd4f98194576
+  [Product Listing]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/bc4a0202-ec44-4f7c-a26a-3d88f55a4f7a
+  [Product Details]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/7611f63a-efd7-4a58-a831-8a1eb360ad8a
+  [View Profile]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/d412a52a-530d-4624-be7a-fc0be06cd2ab
+  [Edit Profile]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/3a386227-9ed4-4c9b-9223-bd4f98194576
 
   [Login]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/c1f0a23d-0643-449e-abf3-3c1b1a330e83
   [Profile]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/738db00a-a9a0-423a-8630-8f097d6ff966
   [Infinite scrolling]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/276bafc1-4959-4551-a86b-b3f4ec9c4722
   [Search post]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/2dca7217-8b80-4549-b76f-83e53850818a
- -->
+
