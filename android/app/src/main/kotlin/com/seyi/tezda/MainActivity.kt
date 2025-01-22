@@ -1,4 +1,4 @@
-package dev.dhafin.dummymart
+package com.seyi.tezda
 
 import io.flutter.embedding.android.FlutterActivity
 

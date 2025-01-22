@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,14 +12,38 @@ import '../../../widgets/app_card.dart';
 import '../../../widgets/avatar_image.dart';
 import '../providers/profile.dart';
 
-class ProfileScreen extends ConsumerWidget {
+class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.watch(profileNotifierProvider);
+  ConsumerState<ProfileScreen> createState() => _ProfileScreenState();
+}
 
-    void onSettingsPressed() => context.push('/settings');
+class _ProfileScreenState extends ConsumerState<ProfileScreen> {
+  static const platform = MethodChannel('com.ios/device');
+  Map<String, String>? deviceInfo;
+
+  Future<void> _fetchDeviceInfo() async {
+    try {
+      final result =
+          await platform.invokeMethod<Map<dynamic, dynamic>>('getDeviceInfo');
+      setState(() {
+        deviceInfo = result?.cast<String, String>();
+      });
+    } on PlatformException catch (e) {
+      print("Failed to get device info: ${e.message}");
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchDeviceInfo();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final profile = ref.watch(profileNotifierProvider);
 
     void onLogoutPressed() =>
         ref.read(currentAuthStateProvider.notifier).logout();
@@ -32,13 +57,11 @@ class ProfileScreen extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('An error occurred')),
         data: (profile) {
-         
-
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Gap(16),
-               Center(
+              Center(
                 child: AvatarImage(
                   width: 120,
                   url: profile.image,
@@ -93,6 +116,24 @@ class ProfileScreen extends ConsumerWidget {
                   ],
                 ),
               ),
+              const Gap(16),
+              deviceInfo == null
+                  ? const Center(child: CircularProgressIndicator())
+                  : Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                              "Device Name: ${deviceInfo?['deviceName'] ?? 'Unknown'}"),
+                          Text(
+                              "System Name: ${deviceInfo?['systemName'] ?? 'Unknown'}"),
+                          Text(
+                              "System Version: ${deviceInfo?['systemVersion'] ?? 'Unknown'}"),
+                          Text("Model: ${deviceInfo?['model'] ?? 'Unknown'}"),
+                        ],
+                      ),
+                    ),
             ],
           );
         },
