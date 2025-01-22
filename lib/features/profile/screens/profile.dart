@@ -8,6 +8,7 @@ import '../../../utils/colors.dart';
 import '../../../utils/extensions.dart';
 import '../../../utils/strings.dart';
 import '../../../widgets/app_card.dart';
+import '../../../widgets/avatar_image.dart';
 import '../providers/profile.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -31,20 +32,16 @@ class ProfileScreen extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('An error occurred')),
         data: (profile) {
-          final records = [
-            (label: 'Name', text: profile.fullName),
-            (label: 'Username', text: profile.username),
-            (label: 'Email', text: profile.email),
-          ];
+         
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Gap(16),
-              const Center(
-                child: CircleAvatar(
-                  radius: 60,
-                  backgroundImage: NetworkImage(kProfile),
+               Center(
+                child: AvatarImage(
+                  width: 120,
+                  url: profile.image,
                 ),
               ),
               const Gap(8),

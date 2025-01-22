@@ -3,6 +3,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../../services/api/api_client.dart';
 import '../../../services/auth_state.dart';
@@ -17,26 +19,57 @@ import '../../../widgets/avatar_image.dart';
 import '../../../widgets/custom_button.dart';
 import '../providers/profile.dart';
 
-class EditProfileScreen extends HookConsumerWidget {
+class EditProfileScreen extends StatefulHookConsumerWidget {
   const EditProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<EditProfileScreen> createState() => _EditProfileScreenState();
+}
+
+class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
+  String? profileImage;
+
+  final ImagePicker picker = ImagePicker();
+
+  @override
+  Widget build(BuildContext context) {
     final profile = ref.watch(profileNotifierProvider);
 
     final fNameController = useTextEditingController();
     final lNameController = useTextEditingController();
     final emailController = useTextEditingController();
 
-    void onEditPicturePressed() =>
-        ref.read(currentAuthStateProvider.notifier).logout();
+    Future<void> onEditPicturePressed() async {
+      // Permission granted, proceed to pick image
+      final XFile? image =
+          await picker.pickImage(source: ImageSource.gallery).catchError(
+        (err) {
+          if (err.toString().contains('photo_access_denied')) {
+            err =
+                'Photo permission permanently denied, opening phone settings...';
+          }
+          // handleError(err.toString(), clear: false);
+          return Future.delayed(const Duration(seconds: 3), () {
+            openAppSettings();
+          });
+        },
+      );
+
+      if (image != null) {
+        setState(() {
+          profileImage = image.path;
+        });
+      }
+    }
 
     Future<void> onDonePressed() async {
+      FocusManager.instance.primaryFocus?.unfocus();
+
       ref.read(profileNotifierProvider.notifier).editProfile(
             fNameController.text,
             lNameController.text,
             emailController.text,
-            'lNameController.text',
+            profileImage!,
           );
 
       await kAnimationDelay;
@@ -83,6 +116,12 @@ class EditProfileScreen extends HookConsumerWidget {
           lNameController.text = profile.lastName;
           emailController.text = profile.email;
 
+          doAfterBuild(() {
+            setState(() {
+              profileImage ??= profile.image;
+            });
+          });
+
           return SafeArea(
             child: Form(
               // key: controller.formKey,
@@ -92,9 +131,9 @@ class EditProfileScreen extends HookConsumerWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const AvatarImage(
+                      AvatarImage(
                         width: 36 * 2,
-                        url: kProfile,
+                        url: profileImage,
                       ),
                       // GetX<EditProfileController>(
                       //   builder: (_) {
@@ -107,7 +146,7 @@ class EditProfileScreen extends HookConsumerWidget {
                       const Gap(8),
                       AppTextButton(
                         text: 'Edit profile picture',
-                        onPressed: () {},
+                        onPressed: onEditPicturePressed,
                       ),
                       const Gap(8),
                       AppTextFormField(
