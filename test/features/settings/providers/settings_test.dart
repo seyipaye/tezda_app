@@ -1,5 +1,5 @@
-import 'package:dummymart/features/settings/providers/settings.dart';
-import 'package:dummymart/services/storage/prefs.dart';
+import 'package:tezda_app/features/settings/providers/settings.dart';
+import 'package:tezda_app/services/storage/prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:test/test.dart';
 

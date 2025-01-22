@@ -1,6 +1,6 @@
-import 'package:dummymart/features/products/models/product.dart';
-import 'package:dummymart/features/products/providers/product.dart';
-import 'package:dummymart/services/api/api_service.dart';
+import 'package:tezda_app/features/products/models/product.dart';
+import 'package:tezda_app/features/products/providers/product.dart';
+import 'package:tezda_app/services/api/api_service.dart';
 import 'package:test/test.dart';
 
 import '../../../utils/testing_utils.dart';

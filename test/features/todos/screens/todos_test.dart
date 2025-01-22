@@ -1,6 +1,6 @@
-import 'package:dummymart/features/todos/providers/todos.dart';
-import 'package:dummymart/features/todos/screens/todos.dart';
-import 'package:dummymart/services/api/api_service.dart';
+import 'package:tezda_app/features/todos/providers/todos.dart';
+import 'package:tezda_app/features/todos/screens/todos.dart';
+import 'package:tezda_app/services/api/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';

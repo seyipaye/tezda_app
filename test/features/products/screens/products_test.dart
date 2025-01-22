@@ -1,6 +1,6 @@
-import 'package:dummymart/features/products/providers/products.dart';
-import 'package:dummymart/features/products/screens/products.dart';
-import 'package:dummymart/services/api/api_service.dart';
+import 'package:tezda_app/features/products/providers/products.dart';
+import 'package:tezda_app/features/products/screens/products.dart';
+import 'package:tezda_app/services/api/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

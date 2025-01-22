@@ -1,8 +1,8 @@
-import 'package:dummymart/features/todos/models/todo.dart';
-import 'package:dummymart/features/todos/providers/todo.dart';
-import 'package:dummymart/features/todos/screens/update_todo.dart';
-import 'package:dummymart/services/api/api_service.dart';
-import 'package:dummymart/widgets/button.dart';
+import 'package:tezda_app/features/todos/models/todo.dart';
+import 'package:tezda_app/features/todos/providers/todo.dart';
+import 'package:tezda_app/features/todos/screens/update_todo.dart';
+import 'package:tezda_app/services/api/api_service.dart';
+import 'package:tezda_app/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';

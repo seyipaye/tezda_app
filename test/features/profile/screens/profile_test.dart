@@ -1,6 +1,6 @@
-import 'package:dummymart/features/profile/models/profile.dart';
-import 'package:dummymart/features/profile/providers/profile.dart';
-import 'package:dummymart/features/profile/screens/profile.dart';
+import 'package:tezda_app/features/profile/models/profile.dart';
+import 'package:tezda_app/features/profile/providers/profile.dart';
+import 'package:tezda_app/features/profile/screens/profile.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../utils/testing_utils.dart';

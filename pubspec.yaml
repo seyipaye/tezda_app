@@ -1,4 +1,4 @@
-name: dummymart
+name: tezda_app
 description: "An example Flutter project that uses Riverpod, go_router, flutter_hooks, and Freezed."
 publish_to: "none"
 version: 1.2.1

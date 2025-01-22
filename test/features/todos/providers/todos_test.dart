@@ -1,7 +1,7 @@
-import 'package:dummymart/features/todos/models/todo.dart';
-import 'package:dummymart/features/todos/providers/todo.dart';
-import 'package:dummymart/features/todos/providers/todos.dart';
-import 'package:dummymart/services/api/api_service.dart';
+import 'package:tezda_app/features/todos/models/todo.dart';
+import 'package:tezda_app/features/todos/providers/todo.dart';
+import 'package:tezda_app/features/todos/providers/todos.dart';
+import 'package:tezda_app/services/api/api_service.dart';
 import 'package:test/test.dart';
 
 import '../../../utils/testing_utils.dart';

@@ -1,7 +1,7 @@
-import 'package:dummymart/features/auth/models/login.dart';
-import 'package:dummymart/services/api/api_service.dart';
-import 'package:dummymart/services/auth_state.dart';
-import 'package:dummymart/services/storage/secure_storage.dart';
+import 'package:tezda_app/features/auth/models/login.dart';
+import 'package:tezda_app/services/api/api_service.dart';
+import 'package:tezda_app/services/auth_state.dart';
+import 'package:tezda_app/services/storage/secure_storage.dart';
 import 'package:test/test.dart';
 
 import '../utils/testing_utils.dart';

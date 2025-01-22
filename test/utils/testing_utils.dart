@@ -1,6 +1,6 @@
-import 'package:dummymart/services/api/api_service.dart';
-import 'package:dummymart/services/api/mock/mocked_api_client.dart';
-import 'package:dummymart/services/storage/secure_storage.dart';
+import 'package:tezda_app/services/api/api_service.dart';
+import 'package:tezda_app/services/api/mock/mocked_api_client.dart';
+import 'package:tezda_app/services/storage/secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';

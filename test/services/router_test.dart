@@ -1,4 +1,4 @@
-import 'package:dummymart/services/router.dart';
+import 'package:tezda_app/services/router.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test/test.dart';
 
