@@ -1,6 +1,6 @@
 # tezda_app
 
-An example Flutter project that uses [Riverpod], [go_router], [flutter_hooks], and [Freezed].
+An example Flutter project that uses [Riverpod].
  
 > Check out the experimental use of macros [here](https://github.com/dhafinrayhan/tezda_app/tree/macros).
 
@@ -12,8 +12,6 @@ You can run the app with `--dart-define=MOCK_API=true` flag to use the internal 
 ## Features
 Each feature demonstrates certain functionalities that are commonly used in a CRUD app.
 1. [Products](https://github.com/dhafinrayhan/tezda_app/tree/master/lib/features/products): Basic **"view all items"** and **"view item details"** functionalities. Also implements **"pull-to-refresh"** mechanism.
-2. [Todos](https://github.com/dhafinrayhan/tezda_app/tree/master/lib/features/todos): Full CRUD operations, including **"add item"**, **"edit item"**, and **"delete item"**.
-3. [Posts](https://github.com/dhafinrayhan/tezda_app/tree/master/lib/features/posts): More advanced read operations such as **"search as we type (with debounce)"** and **"infinite scrolling"**.
 
 The [auth and router services](https://github.com/dhafinrayhan/tezda_app/tree/master/lib/services) allow functionalities such as **"invalidate all data on logout"** and **"redirect screens based on the auth state"**.
 
@@ -22,16 +20,12 @@ The [auth and router services](https://github.com/dhafinrayhan/tezda_app/tree/ma
 Full paths for routes:
   => /
   => /login
+  => /signup
   => /settings
   => /products
   =>   /products/:id
-  => /todos
-  =>   /todos/add
-  =>   /todos/:id
-  =>     /todos/:id/update
-  => /posts
-  =>   /posts/:id
   => /profile
+  => /profile/edit
 ```
 
 ## Setup
@@ -49,7 +43,7 @@ password: avatpass
 
 Or you can use any user credentials from https://dummyjson.com/users.
 
-## Screenshots
+<!-- ## Screenshots
 |||||
 |----|----|----|----|
 | ![View all todos] | ![View a single todo] | ![Add todo] | ![Update todo] |
@@ -72,4 +66,4 @@ Or you can use any user credentials from https://dummyjson.com/users.
   [Profile]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/738db00a-a9a0-423a-8630-8f097d6ff966
   [Infinite scrolling]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/276bafc1-4959-4551-a86b-b3f4ec9c4722
   [Search post]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/2dca7217-8b80-4549-b76f-83e53850818a
-
+ -->
