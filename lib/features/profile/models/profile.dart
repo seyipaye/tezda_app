@@ -6,6 +6,8 @@ part 'profile.g.dart';
 
 @freezed
 class Profile with _$Profile {
+
+  
   const factory Profile({
     required int id,
     required String username,
@@ -22,6 +24,8 @@ class Profile with _$Profile {
 
   factory Profile.fromJson(Map<String, Object?> json) =>
       _$ProfileFromJson(json);
+
+      
 }
 
 enum Gender {

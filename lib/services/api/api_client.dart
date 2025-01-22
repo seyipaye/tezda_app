@@ -67,6 +67,12 @@ class ApiClient {
     return Profile.fromJson(response.data as _ResponseData);
   }
 
+    Future<Profile> editProfile(String fName, String lName, String email, String image) async {
+    final response = await _httpClient.get('/user/me');
+
+    return Profile.fromJson(response.data as _ResponseData);
+  }
+
   Future<List<Product>> fetchProducts() async {
     final response = await _httpClient.get('/products');
 

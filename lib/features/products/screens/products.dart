@@ -7,6 +7,7 @@ import '../../../utils/colors.dart';
 import '../../../utils/strings.dart';
 import '../../../widgets/app_card.dart';
 import '../models/product.dart';
+import '../providers/favourite_provider.dart';
 import '../providers/products.dart';
 
 /// A screen showing all products in a list view.
@@ -16,6 +17,7 @@ class ProductsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final products = ref.watch(productsProvider);
+    final favouriteProducts = ref.watch(favouriteNotifierProvider);
 
     Future<void> onRefresh() => ref.refresh(productsProvider.future);
 
@@ -36,7 +38,23 @@ class ProductsScreen extends ConsumerWidget {
             mainAxisSpacing: 16,
             crossAxisSpacing: 16,
             childAspectRatio: 3 / 4,
-            children: products.map((e) => _ProductListTile(e)).toList(),
+            children: products
+                .map((e) => _ProductListTile(
+                      e,
+                      isLiked: favouriteProducts.contains(e),
+                      onLikeTapped: (newValue) {
+                        if (newValue) {
+                          ref
+                              .read(favouriteNotifierProvider.notifier)
+                              .addProduct(e);
+                        } else {
+                          ref
+                              .read(favouriteNotifierProvider.notifier)
+                              .removeProduct(e);
+                        }
+                      },
+                    ))
+                .toList(),
           ),
           /*  ListView.builder(
             itemCount: products.length,
@@ -49,9 +67,12 @@ class ProductsScreen extends ConsumerWidget {
 }
 
 class _ProductListTile extends StatelessWidget {
-  const _ProductListTile(this.product);
+  const _ProductListTile(this.product,
+      {required this.isLiked, required this.onLikeTapped});
 
   final Product product;
+  final bool isLiked;
+  final ValueChanged<bool> onLikeTapped;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +99,7 @@ class _ProductListTile extends StatelessWidget {
                     height: 30,
                     onTap: () {
                       print('Mark as liked');
+                      onLikeTapped(!isLiked);
                     },
                     radius: 30,
                     decoration: BoxDecoration(
@@ -93,16 +115,17 @@ class _ProductListTile extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: const Icon(
-                      Icons.favorite_border, // Like icon
-                      // color: Colors.red, // Icon color
-                      size: 20, // Icon size
-                    ),
-                    // child: const Icon(
-                    //   Icons.favorite, // Like icon
-                    //   color: Colors.red, // Icon color
-                    //   size: 20, // Icon size
-                    // ),
+                    child: isLiked
+                        ? const Icon(
+                            Icons.favorite, // Like icon
+                            color: Colors.red, // Icon color
+                            size: 20, // Icon size
+                          )
+                        : const Icon(
+                            Icons.favorite_border, // Like icon
+                            // color: Colors.red, // Icon color
+                            size: 20, // Icon size
+                          ),
                   ),
                 )
               ],

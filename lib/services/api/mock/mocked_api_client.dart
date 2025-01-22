@@ -67,6 +67,26 @@ class MockedApiClient implements ApiClient {
     return Profile.fromJson(profileRaw);
   }
 
+    @override
+  Future<Profile> editProfile(
+      String fName, String lName, String email, String image)  async {
+    await Future.delayed(_delay);
+    if (_token == null) {
+      final requestOptions = ApiClientRequestOptions();
+      throw ApiClientException(
+        requestOptions: requestOptions,
+        response: ApiClientResponse(
+          requestOptions: requestOptions,
+          data: {'message': 'Authentication Problem'},
+        ),
+      );
+    }
+    final username = _token!.substring(17);
+    final profileRaw =
+        _usersRaw.singleWhere((user) => user['username'] == username);
+    return Profile.fromJson(profileRaw);
+  }
+
   @override
   Future<List<Product>> fetchProducts() async {
     await Future.delayed(_delay);

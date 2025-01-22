@@ -17,10 +17,11 @@ class AppStrings {
 
 const String kUrl = 'https://picsum.photos/200/200';
 
+const String kProfile = 'https://i.imgur.com/LDOO4Qs.jpg';
+
 const String kRaleway = 'Raleway';
 const String kRoboto = 'Poppins';
 
 const int kCripsExpiryTime = 1; // In hours
 
 const String cripsID = '8f23541e-0518-4659-ba4f-7cda9aa5ac68';
-

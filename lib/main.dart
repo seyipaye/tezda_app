@@ -68,7 +68,7 @@ class _MainApp extends StatefulHookConsumerWidget {
 InputBorder kGetInputBorder(Color color, {double? radius}) =>
     OutlineInputBorder(
       borderRadius: BorderRadius.all(
-        Radius.circular(radius ?? 8),
+        Radius.circular(radius ?? 16),
       ),
       borderSide: BorderSide(color: color),
     );

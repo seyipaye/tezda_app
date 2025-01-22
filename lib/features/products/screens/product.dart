@@ -26,12 +26,6 @@ class ProductScreen extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('An error occurred')),
         data: (product) {
-          final records = [
-            (label: 'Title', text: product.title),
-            (label: 'Description', text: product.description),
-            if (product.brand != null) (label: 'Brand', text: product.brand!),
-            (label: 'Stock', text: product.stock.toString()),
-          ];
           return ListView(
             children: [
               AspectRatio(
@@ -88,16 +82,6 @@ class ProductScreen extends ConsumerWidget {
                 ),
               )
             ],
-          );
-          return ListView.builder(
-            itemCount: records.length,
-            itemBuilder: (_, index) {
-              final record = records[index];
-              return ListTile(
-                title: Text(record.label),
-                subtitle: Text(record.text),
-              );
-            },
           );
         },
       ),

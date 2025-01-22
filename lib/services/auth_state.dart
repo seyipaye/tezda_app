@@ -74,6 +74,7 @@ enum AuthState {
       '/products',
       '/products/:id',
       '/profile',
+      '/profile/edit',
       '/settings',
     ],
   ),

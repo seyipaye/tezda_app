@@ -9,6 +9,7 @@ import '../features/posts/screens/post.dart';
 import '../features/posts/screens/posts.dart';
 import '../features/products/screens/product.dart';
 import '../features/products/screens/products.dart';
+import '../features/profile/screens/edit_profile.dart';
 import '../features/profile/screens/profile.dart';
 import '../features/settings/screens/settings.dart';
 import '../features/todos/screens/add_todo.dart';
@@ -43,7 +44,7 @@ GoRouter router(Ref ref) {
       path: '/products',
       body: (_) => const ProductsScreen(),
       icon: Icons.home_outlined,
-      selectedIcon: Icons.widgets,
+      selectedIcon: Icons.home_filled,
       label: 'Home',
       routes: [
         GoRoute(
@@ -61,6 +62,12 @@ GoRouter router(Ref ref) {
       icon: Icons.person_outline,
       selectedIcon: Icons.person,
       label: 'Profile',
+      routes: [
+        GoRoute(
+          path: '/edit',
+          builder: (_, __) => const EditProfileScreen(),
+        ),
+      ],
     ),
   ];
 
@@ -76,7 +83,7 @@ GoRouter router(Ref ref) {
         path: '/login',
         builder: (_, __) => const LoginScreen(),
       ),
-       GoRoute(
+      GoRoute(
         path: '/signup',
         builder: (_, __) => const SignupScreen(),
       ),

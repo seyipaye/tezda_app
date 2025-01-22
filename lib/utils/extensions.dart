@@ -43,3 +43,21 @@ extension StringX on String {
     return this[0].toUpperCase() + substring(1).toLowerCase();
   }
 }
+
+extension ImageIcon2 on ImageIcon {
+  static ImageIcon asset(
+    String assetName, {
+    final Key? key,
+    final double? size,
+    final Color? color,
+    final String? semanticLabel,
+  }) {
+    return ImageIcon(
+      AssetImage(assetName),
+      key: key,
+      size: size,
+      color: color,
+      semanticLabel: semanticLabel,
+    );
+  }
+}
