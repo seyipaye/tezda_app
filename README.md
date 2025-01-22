@@ -131,13 +131,14 @@ Integrating Swift functionality required setting up Flutter's MethodChannel prop
 <!-- | ![Login] | ![Profile] | ![Infinite scrolling] | ![Search post] | -->
 
 
-  [Product Listing]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/bc4a0202-ec44-4f7c-a26a-3d88f55a4f7a
-  [Product Details]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/7611f63a-efd7-4a58-a831-8a1eb360ad8a
-  [View Profile]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/d412a52a-530d-4624-be7a-fc0be06cd2ab
-  [Edit Profile]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/3a386227-9ed4-4c9b-9223-bd4f98194576
+  [Product Listing]: https://raw.githubusercontent.com/seyipaye/tezda_app/main/assets/docs/Product%20Listing.png
 
-  [Login]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/c1f0a23d-0643-449e-abf3-3c1b1a330e83
+  [Product Details]: https://raw.githubusercontent.com/seyipaye/tezda_app/main/assets/docs/Product%20Details.png
+  [View Profile]:https://raw.githubusercontent.com/seyipaye/tezda_app/main/assets/docs/View%20Profile.png
+  [Edit Profile]: https://raw.githubusercontent.com/seyipaye/tezda_app/main/assets/docs/Edit%20Profile.png
+
+  <!-- [Login]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/c1f0a23d-0643-449e-abf3-3c1b1a330e83
   [Profile]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/738db00a-a9a0-423a-8630-8f097d6ff966
   [Infinite scrolling]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/276bafc1-4959-4551-a86b-b3f4ec9c4722
-  [Search post]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/2dca7217-8b80-4549-b76f-83e53850818a
+  [Search post]: https://github.com/dhafinrayhan/tezda_app/assets/49405411/2dca7217-8b80-4549-b76f-83e53850818a -->
 
