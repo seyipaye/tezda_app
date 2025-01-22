@@ -1,5 +1,5 @@
 name: tezda_app
-description: "An example Flutter project that uses Riverpod, go_router, flutter_hooks, and Freezed."
+description: "An example market place Flutter project that uses Riverpod."
 publish_to: "none"
 version: 1.2.1
 

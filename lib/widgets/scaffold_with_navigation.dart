@@ -25,19 +25,30 @@ class ScaffoldWithNavigation extends StatelessWidget {
 
     return Scaffold(
       body: child,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: selectedIndex,
-        onDestinationSelected: onDestinationSelected,
-        backgroundColor: Colors.white,
-        destinations: [
-          for (final item in navigationItems)
-            NavigationDestination(
-              icon: Icon(item.icon),
-              selectedIcon:
-                  item.selectedIcon != null ? Icon(item.selectedIcon) : null,
-              label: item.label,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
             )
-        ],
+          ],
+        ),
+        child: NavigationBar(
+          selectedIndex: selectedIndex,
+          onDestinationSelected: onDestinationSelected,
+          backgroundColor: Colors.white,
+          destinations: [
+            for (final item in navigationItems)
+              NavigationDestination(
+                icon: Icon(item.icon),
+                selectedIcon:
+                    item.selectedIcon != null ? Icon(item.selectedIcon) : null,
+                label: item.label,
+              )
+          ],
+        ),
       ),
     );
   }
