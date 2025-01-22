@@ -6,7 +6,6 @@ A Flutter-based e-commerce app, designed to showcase the integration of Flutter,
 ## ⚠ Important Notes
 This project uses [DummyJSON](https://dummyjson.com/) API. Please note that DummyJSON **doesn't apply your changes** when creating, updating, or deleting items. This project correctly implements those actions, but expect no data changes due to these API limitations.
 
----
 
 ## Table of Contents
 - [Features](#features)
@@ -18,7 +17,6 @@ This project uses [DummyJSON](https://dummyjson.com/) API. Please note that Dumm
 - [Design Choices and Challenges](#design-choices-and-challenges)
 - [Screenshots](#screenshots)
 
----
 ## Features
 ### Product Listing Screen
 - Displays a list of products fetched from [DummyJSON](https://dummyjson.com/).
@@ -64,7 +62,6 @@ Full paths for routes:
 - Android Studio Arctic Fox or later (for Android builds)
 - Riverpod 2.x
 
----
 ## Setup and Installation
 
 ### Installation
@@ -107,7 +104,6 @@ Or you can use any user credentials from https://dummyjson.com/users.
   const platform = MethodChannel('com.ios/device');
   final deviceInfo = await platform.invokeMethod('getDeviceInfo');
 
----
 
 ## Design Choices and Challenges
 ### Design Choices
